@@ -1,0 +1,6 @@
+/cred
+config.yml
+/bin
+/include
+/lib
+pyvenv.cfg

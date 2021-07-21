@@ -1,0 +1,11 @@
+mention_name : "@creatorcabins"
+keyword : "[application]"
+
+twitter_client_id : "<YOUR CLIENT ID>"
+twitter_secret_key : "<YOUR SECRET KEY>"
+
+
+gsheet_cred_path : "path/json"
+gsheet_sheet_name : "CreatorCabin"
+
+discord_webhook : "<YOUR DISCORD WEBHOOK>"
