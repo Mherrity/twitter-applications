@@ -2,6 +2,10 @@ import yaml
 from modules.gsheets import WorkSheet
 from modules.twitter import Twitter
 from modules.discord import Discord
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+
+
 
 CONFIG_PATH = "config.yml"
 
@@ -39,15 +43,20 @@ def run_it(worksheet, discord, twitter):
                 discord.send_message(user)
 
 
+sched = BlockingScheduler()
+
+config = load_config()
+worksheet, discord, twitter = initailize_class(config)
 
 
-def main():
-    config = load_config()
-    worksheet, discord, twitter = initailize_class(config)
+@sched.scheduled_job('interval', minutes=10)
+def timed_job():
+    print('Starting Job 🥳')
     run_it(worksheet, discord, twitter)
+    print('Job Over 🥳')
 
 if __name__ == "__main__":
-    main()
+    sched.start()
 
 
     
